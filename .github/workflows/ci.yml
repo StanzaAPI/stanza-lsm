@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+      - name: Clippy lint gate
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Unit and integration tests
+        run: cargo test --release
+      - name: Deterministic Simulation Testing (500 seeds x 200 ops)
+        run: cargo run --release -- dst --seeds 500 --steps 200

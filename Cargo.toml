@@ -1,0 +1,24 @@
+[package]
+name = "stanza-lsm"
+version = "0.1.0"
+edition = "2021"
+authors = ["Noor Mkdad <noorhayatywadam@gmail.com>"]
+description = "Crash-safe WAL and prefix-compressed LSM-tree storage engine with deterministic simulation testing for Stanza API compliance and reference workloads."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/StanzaAPI/stanza-lsm"
+readme = "README.md"
+keywords = ["lsm-tree", "storage-engine", "wal", "deterministic-simulation", "compliance"]
+categories = ["database-implementations", "data-structures", "filesystem"]
+
+[lib]
+name = "stanza_lsm"
+path = "src/lib.rs"
+
+[[bin]]
+name = "stanza-lsm"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
