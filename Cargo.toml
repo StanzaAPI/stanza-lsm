@@ -7,7 +7,7 @@ description = "Crash-safe WAL and prefix-compressed LSM-tree storage engine with
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/StanzaAPI/stanza-lsm"
 readme = "README.md"
-keywords = ["lsm-tree", "storage-engine", "wal", "deterministic-simulation", "compliance"]
+keywords = ["lsm-tree", "storage-engine", "wal", "dst", "compliance"]
 categories = ["database-implementations", "data-structures", "filesystem"]
 
 [lib]
